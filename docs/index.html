@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="OR Re-Identification and Tracking — Blog-style page with table of contents and structured sections" />
+    <title>Going Beyond Role-Based Surgical Domain Modeling — Blog</title>
+
+    <!-- Existing assets -->
+    <link rel="stylesheet" href="./static/css/fonts.css" />
+    <link rel="stylesheet" href="./static/css/bulma.min.css" />
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+    <link rel="stylesheet" href="./static/css/index.css" />
+    <!-- New: article styling -->
+    <link rel="stylesheet" href="./static/css/blog.css" />
+    <link rel="icon" href="./static/images/favicon.svg" />
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+
+    <!-- Performance: preconnect for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Auto-generated TOC & auto-numbering (no scroll-spy) -->
+    <script defer src="./static/js/toc.js"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero / header with author avatars -->
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">
+                            Going Beyond Role-Based Surgical Domain Modeling — Towards Personalized OR Intelligence
+                        </h1>
+
+                        <div class="authors-grid">
+                            <div class="author-card">
+                                <a class="avatar-link" href="https://wngtn.github.io" target="_blank"
+                                    rel="noopener noreferrer" aria-label="Open Tony Danjun Wang's page">
+                                    <img loading="lazy" class="author-avatar" src="./static/images/authors/wang.jpg"
+                                        onerror="this.onerror=null;this.src='./static/images/authors/default.svg';"
+                                        alt="Tony Danjun Wang" />
+                                </a>
+                                <div class="author-name">
+                                    <a href="https://wngtn.github.io" target="_blank" rel="noopener noreferrer">Tony
+                                        Danjun Wang</a><sup>*,1</sup>
+                                </div>
+                            </div>
+
+                            <div class="author-card">
+                                <a class="avatar-link" href="https://www.cs.cit.tum.de/camp/members/lennart-bastian/"
+                                    target="_blank" rel="noopener noreferrer" aria-label="Open Lennart Bastian's page">
+                                    <img loading="lazy" class="author-avatar" src="./static/images/authors/bastian.jpg"
+                                        onerror="this.onerror=null;this.src='./static/images/authors/default.svg';"
+                                        alt="Lennart Bastian" />
+                                </a>
+                                <div class="author-name">
+                                    <a href="https://www.cs.cit.tum.de/camp/members/lennart-bastian/" target="_blank"
+                                        rel="noopener noreferrer">Lennart Bastian</a><sup>*,1,2</sup>
+                                </div>
+                            </div>
+
+                            <div class="author-card">
+                                <a class="avatar-link" href="https://profiles.ucl.ac.uk/98117-tobias-czempiel"
+                                    target="_blank" rel="noopener noreferrer" aria-label="Open Tobias Czempiel's page">
+                                    <img loading="lazy" class="author-avatar" src="./static/images/authors/czempiel.png"
+                                        onerror="this.onerror=null;this.src='./static/images/authors/default.svg';"
+                                        alt="Tobias Czempiel" />
+                                </a>
+                                <div class="author-name">
+                                    <a href="https://profiles.ucl.ac.uk/98117-tobias-czempiel" target="_blank"
+                                        rel="noopener noreferrer">Tobias Czempiel</a><sup>3</sup>
+                                </div>
+                            </div>
+
+                            <div class="author-card">
+                                <a class="avatar-link" href="https://de.linkedin.com/in/christian-heiliger"
+                                    target="_blank" rel="noopener noreferrer"
+                                    aria-label="Open Christian Heiliger's page">
+                                    <img loading="lazy" class="author-avatar" src="./static/images/authors/heiliger.jpg"
+                                        onerror="this.onerror=null;this.src='./static/images/authors/default.svg';"
+                                        alt="Christian Heiliger" />
+                                </a>
+                                <div class="author-name">
+                                    <a href="https://de.linkedin.com/in/christian-heiliger" target="_blank"
+                                        rel="noopener noreferrer">Christian Heiliger</a><sup>4</sup>
+                                </div>
+                            </div>
+
+                            <div class="author-card">
+                                <a class="avatar-link" href="https://www.professoren.tum.de/en/navab-nassir"
+                                    target="_blank" rel="noopener noreferrer" aria-label="Open Nassir Navab's page">
+                                    <img loading="lazy" class="author-avatar" src="./static/images/authors/navab.jpg"
+                                        onerror="this.onerror=null;this.src='./static/images/authors/default.svg';"
+                                        alt="Nassir Navab" />
+                                </a>
+                                <div class="author-name">
+                                    <a href="https://www.professoren.tum.de/en/navab-nassir" target="_blank"
+                                        rel="noopener noreferrer">Nassir Navab</a><sup>1,2</sup>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="is-size-6 publication-authors" style="margin-top:.5rem;">
+                            <span class="author-block"><sup>*</sup>Equal Contribution</span>
+                            <span class="author-block"><sup>1</sup>Technical University of Munich (TUM)</span>
+                            <span class="author-block"><sup>2</sup>Munich Center for Machine Learning (MCML)</span>
+                            <span class="author-block"><sup>3</sup>University College London (UCL)</span>
+                            <span class="author-block"><sup>4</sup>University Hospital of Munich (LMU)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured publications (top) -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="container">
+                <!-- Row 1 -->
+                <div class="publication-row mb-4">
+                    <h3 class="title is-5 has-text-centered">
+                        Beyond role-based surgical domain modeling: Generalizable re-identification in the operating
+                        room
+                    </h3>
+                    <div class="pub-meta">Medical Image Analysis'25</div>
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <span class="link-block">
+                                <a href="https://www.sciencedirect.com/science/article/pii/S1361841525002348"
+                                    target="_blank" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fas fa-book"></i></span>
+                                    <span>Medical Image Analysis (Elsevier)</span>
+                                </a>
+                            </span>
+                            <span class="link-block">
+                                <a href="https://arxiv.org/abs/2503.13028" target="_blank"
+                                    class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                                    <span>arXiv</span>
+                                </a>
+                            </span>
+                            <span class="link-block">
+                                <a href="https://github.com/wngTn/or_reid" target="_blank"
+                                    class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fab fa-github"></i></span>
+                                    <span>Code</span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="publication-row mb-4">
+                    <h3 class="title is-5 has-text-centered">
+                        TrackOR: Towards Personalized Intelligent Operating Rooms Through Robust Tracking
+                    </h3>
+                    <div class="pub-meta">(Full Research Paper @ COLAS Workshop MICCAI'25)</div>
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <span class="link-block">
+                                <a href="https://arxiv.org/abs/2508.07968" target="_blank"
+                                    class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                                    <span>arXiv</span>
+                                </a>
+                            </span>
+                            <span class="link-block">
+                                <a href="static/materials/TrackOR.pdf" target="_blank"
+                                    class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fas fa-file-image"></i></span>
+                                    <span>Poster</span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="publication-row mb-4">
+                    <h3 class="title is-5 has-text-centered">
+                        Mitigating Biases in Surgical Operating Rooms with Geometry
+                    </h3>
+                    <div class="pub-meta">(Extended Abstract @ COLAS Workshop MICCAI'25)</div>
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <span class="link-block">
+                                <a href="https://arxiv.org/abs/2508.08028" target="_blank"
+                                    class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                                    <span>arXiv</span>
+                                </a>
+                            </span>
+                            <span class="link-block">
+                                <a href="static/materials/Mitigating_Biases.pdf" target="_blank"
+                                    class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fas fa-file-image"></i></span>
+                                    <span>Poster</span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TOC card (non-sticky) -->
+    <nav class="toc-bar" aria-label="Table of contents">
+        <div class="container is-max-desktop">
+            <div class="toc-title">Table of Contents</div>
+            <ol id="toc-list" class="toc-list"></ol>
+        </div>
+    </nav>
+
+    <!-- Blog content -->
+    <section class="section" id="article-content">
+        <div class="container is-max-desktop">
+            <div class="content">
+
+                <div class="message is-info" style="margin-top:.75rem;">
+                    <div class="message-header">
+                        <span class="icon"><i class="fas fa-info-circle"></i></span>
+                        <span>Note</span>
+                    </div>
+                    <div class="message-body">
+                        In our journal paper <a class="cite" data-key="wang2025_beyond_role"></a> we introduce the
+                        <em>OR_ReID_13 dataset</em>.
+                        This dataset is taken from the MM-OR dataset, however, the MM-OR dataset was not published
+                        during the time of writing.
+                        As such, the OR_ReID_13 dataset and MM-OR dataset reference the same dataset and both names are
+                        used interchangeably.
+                    </div>
+                </div>
+
+                <!-- Section 1 -->
+                <section class="blog-section">
+                    <h2 class="title is-3">Beyond Role-Based Surgical Domain Modeling: A Staff-Centric Approach for
+                        Surgical
+                        Domain Modeling</h2>
+                    <div class="content">
+                        <section class="section" id="Lede">
+                            <div class="container is-max-desktop content">
+                                <h2 class="title">Lede:</h2>
+                                <p>We challenge the traditional, role-based view of the operating room, proposing a
+                                    <em>"staff-centric"</em> model that recognizes the unique impact of each individual
+                                    on surgical dynamics.
+                                </p>
+                            </div>
+                        </section>
+
+                        <p>
+                            Surgical data science has aimed to optimize operating room (OR) workflows by analyzing the
+                            roles of the surgical staff.
+                            However, this approach treats team members as interchangeable parts, failing to capture the
+                            nuanced differences between them.
+                            Given that factors like team familiarity and individual habits significantly affect surgical
+                            outcomes, from operative times to complication rates, we argue that this role-based view is
+                            not enough.
+                            We propose a fundamental shift towards a <strong>staff-centric model</strong> where each
+                            person is recognized as a unique individual, not simply an abstract role.
+                            However, achieving this presents a significant challenge.
+
+                        </p>
+                        <p>
+                            To see the limitation of the <em>role-centric model</em>, we show two different teams
+                            performing the same surgery with the same roles.
+                            Notice how their coordination, and use
+                            of the space differ, highlighting how much team dynamics can change even when roles
+                            remain the same.
+                        </p>
+
+                        <!-- Dual synchronized videos: Team 1 (left) & Team 2 (right) -->
+                        <div class="figure video-figure">
+                            <div class="video-grid" id="clinical-team-videos">
+                                <figure class="video-card">
+                                    <div class="video-label">Team 1</div>
+                                    <video id="team1" src="static/videos/Clinical_Team_1.mp4" preload="auto" playsinline
+                                        muted autoplay loop></video>
+                                </figure>
+                                <figure class="video-card">
+                                    <div class="video-label">Team 2</div>
+                                    <video id="team2" src="static/videos/Clinical_Team_2.mp4" preload="auto" playsinline
+                                        muted autoplay loop></video>
+                                </figure>
+                            </div>
+                            <div class="fig-body">
+                                <div class="buttons is-centered video-controls">
+                                    <button class="button is-dark" id="playBoth">
+                                        <span class="icon"><i class="fas fa-play"></i></span>
+                                        <span>Play</span>
+                                    </button>
+                                    <button class="button" id="pauseBoth">
+                                        <span class="icon"><i class="fas fa-pause"></i></span>
+                                        <span>Pause</span>
+                                    </button>
+                                    <button class="button" id="restartBoth">
+                                        <span class="icon"><i class="fas fa-undo"></i></span>
+                                        <span>Restart</span>
+                                    </button>
+                                </div>
+                                <div class="fig-caption">Comparison: Team 1 vs Team 2 performing the same (robot
+                                    assisted) surgery. Both teams contain: head surgeon, assistant surgeon, scrub nurse,
+                                    and robot technician.</div>
+                            </div>
+                        </div>
+
+                        <a class="back-to-top" href="#toc-list">↑ Back to top</a>
+                </section>
+
+                <!-- Section 2 -->
+                <section class="blog-section">
+                    <h2 class="title is-3">Challenges in Surgical Operating Rooms</h2>
+                    <div class="content">
+                        <section class="section" id="Lede">
+                            <div class="container is-max-desktop content">
+                                <h2 class="title">Lede:</h2>
+                                <p>
+                                    The OR’s sterile environment creates a unique visual challenge as standardized
+                                    attire and protective gear erase the very features traditional models rely on to
+                                    differentiate people.
+                                </p>
+                            </div>
+                        </section>
+
+                        <p>
+                            The surgical OR is a challenging environment compared to general environments where
+                            individuals are easily distinguished by their clothing and faces.
+                            Team members wear standardized, often visually indistinct, smocks and gowns to maintain
+                            sterility. This homogeneity makes traditional appearance-based identification methods, which
+                            rely on texture and color fail.
+                            Furthermore, surgical masks, skull caps, and other protective equipment hide facial features
+                            and hair, which are the prominent cues for person re-identification.
+                        </p>
+                        <p>
+                            As you can see in the figure below, the standardized attire makes it difficult to
+                            differentiate individuals based on appearance alone.
+                        </p>
+                    </div>
+
+
+                    <div class="figure">
+                        <img src="./static/images/section_2.pdf" alt="Data Examples" loading="lazy" />
+                        <div class="fig-body">
+                            <div class="fig-caption">Individuals become much more difficult to re-identify in the
+                                operating room due to standardized attire and gear that obstructs traditional landmarks
+                                like face and hair.</div>
+                        </div>
+                    </div>
+
+                    <a class="back-to-top" href="#toc-list">↑ Back to top</a>
+                </section>
+
+                <!-- Section 3 -->
+                <section class="blog-section">
+                    <h2 class="title is-3">Generalizable Re-Identification in the Operating Room</h2>
+
+                    <div class="message is-info" style="margin-top:.75rem;">
+                        <div class="message-header">
+                            <span class="icon"><i class="fas fa-info-circle"></i></span>
+                            <span>Note</span>
+                        </div>
+                        <div class="message-body">
+                            Please read our journal paper <a class="cite" data-key="wang2025_beyond_role"></a> for much
+                            more details on this topic.
+                        </div>
+                    </div>
+
+
+                    <section class="section" id="Lede">
+                        <div class="container is-max-desktop content">
+                            <h2 class="title">Lede:</h2>
+                            <p>
+                                In our work <a class="cite" data-key="wang2025_beyond_role"></a>, we also
+                                introduce a re-identification framework that uses 3D geometry and articulated motion to
+                                overcome
+                                environmental variations and enable robust, long-term re-identification of surgical
+                                staff across
+                                different procedures and clinics.
+                            </p>
+                        </div>
+                    </section>
+
+                    <h3 class="subtitle is-4">Mitigating Biases in Surgical Operating Rooms with Geometry</h3>
+                    <div class="content">
+                        <p>
+                            Deep neural networks are known to have a strong bias towards texture.
+                            In the context of the OR, these networks will learn spurious correlations from incidental
+                            visual cues rather than robust biometric features.
+                            Our saliency analysis reveal a clear example of this "shortcut learning" on the 4D-OR
+                            dataset, where models fixate on simulation artifacts like street shoes and distinct eyewear
+                            visible beneath surgical gowns.
+                            These shortcuts allow the models to achieve high accuracy within that specific dataset.
+                            However, when these artifacts vanish in the more realistic MM-OR dataset, the models'
+                            activation maps become diffuse and unfocused, suggesting they struggle to find any reliable
+                            features.
+                        </p>
+
+
+                        <div class="figure">
+                            <img src="./static/images/activation_maps.pdf" alt="Activation Maps" loading="lazy" />
+                            <div class="fig-body">
+                                <div class="fig-caption">RGB image excepts and overlayed saliency maps generated with
+                                    GradCAM on the simulated datasets 4D-OR and OR_ReID_13. 4D-OR’s limited
+                                    realism and variety allow CNNs to identify individuals solely by their heads and
+                                    shoes. In more realistic OR settings like OR_ReID_13, these features become less
+                                    useful due to more homogenous attire. These discrepancies between different clinical
+                                    environments can impede generalization.</div>
+                            </div>
+                        </div>
+
+                        <p>
+                            To overcome this, we shift our focus from appearance to geometry and articulated motion. Our
+                            approach encodes surgical personnel as sequences of 3D point clouds, to naturally
+                            disentangle identity-relevant shape and motion patterns from misleading, appearance-based
+                            confounders. By capturing invariant geometric properties like an individual's stature, body
+                            shape, and unique movement patterns, we can create a robust biometric signature that
+                            persists even when attire is identical.
+                        </p>
+
+                        <p>
+                            The video below illustrates this concept. While the surgeons are visually ambiguous in the
+                            RGB image, their distinct heights and body shapes become clear and measurable in the point
+                            cloud representation.
+                        </p>
+
+                        <div class="figure">
+                            <img src="./static/videos/idea.mov" alt="Idea" loading="lazy" />
+                            <div class="fig-body">
+                                <div class="fig-caption"><em>Who is the person to re-identify?</em> A depiction of four
+                                    surgeons
+                                    (Surgeon 1, 2, 3, and 4), which are challenging to visually differentiate.</div>
+                            </div>
+                        </div>
+                        <a class="back-to-top" href="#toc-list">↑ Back to top</a>
+                    </div>
+
+                    <h3 class="subtitle is-4">Methodology</h3>
+                    <div class="content">
+                        <section class="section" id="Lede">
+                            <div class="container is-max-desktop content">
+                                <h2 class="title">Lede:</h2>
+                                <p>
+                                    Our method transforms multi-view RGB-D OR recordings into a robust geometric
+                                    representation and then feeds it into a model to learn unique individual signatures.
+                                </p>
+                            </div>
+                        </section>
+
+                        <p>We first segment each individual from the fused 3D point cloud of the scene. For each person,
+                            we then use their segmented point cloud to extract RGB bounding boxes and render a series of
+                            2D depth maps from multiple virtual camera angle.
+                        </p>
+
+                        <div class="figure">
+                            <img src="./static/images/zz_figure_main_part_1.pdf" alt="Main_1" loading="lazy" />
+                            <div class="fig-body">
+                                <div class="fig-caption">An overview of the data pre-processing to acquire RGB and point
+                                    cloud input frames.</div>
+                            </div>
+                        </div>
+
+                        <p>
+                            Once we have the input sequences, we use a modal-agnostic encoding strategy.
+                            Each frame in a sequence is individually processed by a lightweight ResNet-9 encoder.
+                            The features are then aggregated over time and processed to generate a final probe embedding
+                            for each view. During training, the model learns to pull embeddings of the same individual
+                            closer together in the latent space while pushing those of different individuals apart.
+                            During inference, we use a simple majority vote across all views to determine the person's
+                            identity
+                        </p>
+
+                        <div class="figure">
+                            <img src="./static/images/zz_figure_main_part_2.pdf" alt="Main_1" loading="lazy" />
+                            <div class="fig-body">
+                                <div class="fig-caption">Our model can take a sequence of multi-view 2D images as input.
+                                </div>
+                            </div>
+                        </div>
+                        <a class="back-to-top" href="#toc-list">↑ Back to top</a>
+
+                    </div>
+
+                    <h3 class="subtitle is-4">Results</h3>
+                    <div class="content">
+                        <section class="section" id="Lede">
+                            <div class="container is-max-desktop content">
+                                <h2 class="title">Lede:</h2>
+                                <p>
+                                    Our geometric approach outperforms traditional RGB-based methods in realistic
+                                    clinical settings and furthermore demonstrates far superior generalization when
+                                    transferring
+                                    between different OR and non-OR environments.
+                                </p>
+                            </div>
+                        </section>
+
+                        <p>
+                            In our quantitative results, all approaches perform well on the simulated 4D-OR dataset
+                            (contains artificial visual cues), however, their effectiveness diverge dramatically on the
+                            more authentic OR_REID_13 dataset.
+                            Our point cloud-based method outperforms its RGB counterpart by a 12% margin in accuracy.
+                            This trend is even more pronounced in cross-dataset evaluations.
+                        </p>
+
+
+                        <div class="figure">
+                            <img src="./static/images/table.pdf" alt="Table" loading="lazy" />
+                            <div class="fig-body">
+                                <div class="fig-caption">Comparison of inter- and intra-dataset performance between
+                                    LidarGait, PAT, and our method.</div>
+                            </div>
+                        </div>
+
+                        <p>
+                            We visualize learned feature spaces.
+                            The visualization on the left reveals that the RGB model tends to cluster individuals by
+                            their surgical attire and role, grouping people with similar scrubs together even if they
+                            are different individuals. In contrast, the point cloud model structures the latent space
+                            based on more meaningful physical characteristics like stature ("Tall" vs. "Short").
+                        </p>
+
+                        <div class="figure">
+                            <img src="./static/images/zz_figure_qualitative.pdf" alt="Qualitative" loading="lazy" />
+                            <div class="fig-body">
+                                <div class="fig-caption">Visualization of the RGB and point cloud latent spaces on
+                                    OR_ReID_13, visualized by a t-SNE projection. Regions are manually highlighted based
+                                    on the common attributes within clusters in the latent spaces.</div>
+                            </div>
+                        </div>
+
+                        <a class="back-to-top" href="#toc-list">↑ Back to top</a>
+
+                    </div>
+
+                    <h3 class="subtitle is-4">Downstream Analysis of OR Workflows through 3D Activity Imprints</h3>
+                    <div class="content">
+                        <section class="section" id="Lede">
+                            <div class="container is-max-desktop content">
+                                <h2 class="title">Lede:</h2>
+                                <p>
+                                    We propose <em>3D activity imprints</em> that visualize how individuals and
+                                    teams utilize the OR space.
+                                </p>
+                            </div>
+                        </section>
+
+                        <p>
+                            A key benefit of our staff-centric model is the ability to analyze surgical workflows at the
+                            individual level. We propose <em>3D activity imprints</em>, which is a visualization
+                            technique that plots a person's movement and spatial occupancy as a heatmap overlaid on a 3D
+                            representation of the OR.
+                            The videos below show imprints for two different head surgeons performing the exact same
+                            procedure. Notice how they develop distinct positional preferences, with one consistently
+                            favoring the patient's left side and the other both sides.
+                        </p>
+
+                        <div class="figure video-figure">
+                            <div class="video-grid" id="clinical-team-videos">
+                                <figure class="video-card">
+                                    <div class="video-label">Head Surgeon (Person 1)</div>
+                                    <video id="head_s1" src="static/videos/head_surgeon_1.mp4" preload="auto" controls
+                                        playsinline muted autoplay loop></video>
+                                </figure>
+                                <figure class="video-card">
+                                    <div class="video-label">Head Surgeon (Person 2)</div>
+                                    <video id="head_s2" src="static/videos/head_surgeon_2.mp4" preload="auto" controls
+                                        playsinline muted autoplay loop></video>
+                                </figure>
+                            </div>
+                            <div class="fig-body">
+                                <div class="fig-caption">Comparison: Person 1 as head surgeon, vs. person 2 as head
+                                    surgeon, performing the same surgical procedure.</div>
+                            </div>
+                        </div>
+
+                        <p>
+                            We can also aggregate these imprints to analyze the dynamics of an entire surgical team.
+                            The heatmaps below illustrate two different team constellations and their collective
+                            movement patterns.
+                        </p>
+
+                        <div class="figure">
+                            <img src="./static/images/zz_figure_heatmap_constellation.pdf" alt="Heatmaps"
+                                loading="lazy" />
+                            <div class="fig-body">
+                                <div class="fig-caption">Different personnel constellations and their respective 3D
+                                    activity imprints. Our proposed re-ID-based tracking approach yields insight into
+                                    the coordination of surgical teams, providing insight into group workflow patterns
+                                    and usage of the OR for a given surgery. The patient table is visualized in blue;
+                                    the tool-table in green; the robot maintenance station in gold.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="back-to-top" href="#toc-list">↑ Back to top</a>
+                </section>
+
+                <!-- Section 4 -->
+                <section class="blog-section">
+                    <h2 class="title is-3">Towards Personalized Intelligent: Robust Tracking in Operating Rooms
+                        (TrackOR) </h2>
+
+                    <div class="message is-info" style="margin-top:.75rem;">
+                        <div class="message-header">
+                            <span class="icon"><i class="fas fa-info-circle"></i></span>
+                            <span>Note</span>
+                        </div>
+                        <div class="message-body">
+                            Please read our workshop paper <a class="cite" data-key="wang2025_trackor"></a> for much
+                            more details on this topic.
+                        </div>
+                    </div>
+
+                    <section class="section" id="Lede">
+                        <div class="container is-max-desktop content">
+                            <h2 class="title">Lede:</h2>
+                            <p>
+                                Building on our robust geometric signature, we develop <em>TrackOR</em>, an
+                                end-to-end framework designed to solve the "revolving door" problem of the OR and
+                                maintain
+                                persistent identities throughout entire surgical procedure<strong>s</strong>.
+                            </p>
+                        </div>
+                    </section>
+
+                    <p>
+                        While <a class="cite" data-key="wang2025_beyond_role"></a> provides a strong biometric
+                        signature, a complete tracking system must handle the dynamic nature of the OR, where staff
+                        frequently leave and re-enter the room for extended periods. Traditional multi-object trackers
+                        often fail in these scenarios; they can associate an individual from one frame to the next but
+                        lose their identity permanently after a prolonged absence. This confines their utility to short,
+                        uninterrupted video segments and makes a true longitudinal analysis of a full surgery
+                        impossible.
+                    </p>
+
+                    <p>
+                        To solve this, we introduce <em>TrackOR</em>, a framework for long-term multi-person tracking
+                        and re-identification. <em>TrackOR</em> integrates our 3D geometric signature into a complete
+                        online tracking pipeline. This allows the system to handle temporary occlusions and to correctly
+                        re-identify staff members who return to the OR after a long absence.
+                        The result is the ability to reconstruct complete, persistent and temporally aware trajectories
+                        for each staff member, to enable staff-centric analyses required for personalized intelligent
+                        systems in the OR.
+                    </p>
+
+                    <div class="figure">
+                        <img src="./static/images/trackor.pdf" alt="TrackOR" loading="lazy" />
+                        <div class="fig-body">
+                            <div class="fig-caption">
+                                A) 2D Trackers: Fail due to single-camera views and ambiguous, appearance-based ReID.
+                                B) Standard 3D Trackers: Handle multi-camera setups but lack robust ReID features, so
+                                they cannot track staff through prolonged absences.
+                                C) <strong>TrackOR (Ours):</strong> Creates strong geometric ReID features, enabling
+                                persistent identity tracking even when staff leave and re-enter the OR.
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="subtitle is-4">Methodology</h3>
+                    <div class="content">
+                        <section class="section" id="Lede">
+                            <div class="container is-max-desktop content">
+                                <h2 class="title">Lede:</h2>
+                                <p>
+                                    <em>TrackOR</em> is a "tracking-by-detection" framework. Its core is
+                                    a real-time online tracker that achieves SOTA performance. For downstream
+                                    applications
+                                    requiring fully reconstructed paths, the framework also includes an optional offline
+                                    recovery process.
+                                </p>
+                            </div>
+                        </section>
+
+                        <p>
+                            The online tracking stage operates in real-time during the surgery.
+                            For each frame, the system first detects all individuals in the scene as 3D human poses
+                            using multi-view RGB. For each detection, we extract our robust 3D geometric ReID feature
+                            from the person's corresponding point cloud. To associate people from one frame to the next,
+                            we calculate a cost based on both their spatial proximity and the similarity of their
+                            geometric signatures.
+                        </p>
+
+                        <div class="figure">
+                            <img src="./static/images/online_tracking.pdf" alt="Online Tracking" loading="lazy" />
+                            <div class="fig-body">
+                                <div class="fig-caption">
+                                    1.) 3D Detection: We take a "3D-first" approach, detecting human poses directly in
+                                    3D from multi-view camera inputs.
+                                    2.) Feature Extraction: A robust, view-invariant 3D geometric signature is extracted
+                                    from each person's point cloud to serve as the ReID feature.
+                                    3.) Association: Detections are matched to existing trajectories using a cost matrix
+                                    that combines a spatial cost (3D GIoU) with a shape cost based on the cosine
+                                    dissimilarity of our geometric ReID features.
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>
+                            For downstream tasks, we can perform an offline global trajectory recovery step to correct
+                            any errors or fragmentation from the online stage. We take all the tracklets and use our
+                            ReID model to assign a definitive identity to each tracklet. Finally, we group all tracklets
+                            with the same assigned identity to reconstruct a single, complete global trajectory for each
+                            person from the start to the end its global trajectory
+                        </p>
+
+                        <div class="figure">
+                            <img src="./static/images/offline_recov.pdf" alt="Offline Recovery" loading="lazy" />
+                            <div class="fig-body">
+                                <div class="fig-caption">
+                                    This post-processing step can be applied for specific analyses, such as our temporal
+                                    pathway imprints. An SVM-Gallery classifies each tracklet by identity.  All
+                                    tracklets assigned the same identity are then merged to form a complete, persistent
+                                    trajectory for each individual.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="subtitle is-4">Results</h3>
+                    <div class="content">
+                        <section class="section" id="Lede">
+                            <div class="container is-max-desktop content">
+                                <h2 class="title">Lede:</h2>
+                                <p>
+                                    <em>TrackOR</em> achieves significantly better association performance due to
+                                    the
+                                    geometric Re-ID features maintaining accurate, long-term identities.
+                                </p>
+                            </div>
+                        </section>
+
+                        <p>
+                            We benchmark our framework against a comprehensive set of modern 2D and 3D trackers. The
+                            quantitative results show that TrackOR achieves the highest overall tracking performance,
+                            driven
+                            by the Association Accuracy.
+                        </p>
+
+                        <div class="figure">
+                            <img src="./static/images/trackor_results.pdf" alt="TrackOR Results" loading="lazy" />
+                            <div class="fig-body">
+                                <div class="fig-caption">
+                                    Quantitative comparison of <em>TrackOR (Ours)</em> against 2D and 3D tracking
+                                    baselines on the MM-OR test set. Bold indicates the best performance per metric. ↑
+                                    Higher is better, ↓ lower is better, † denotes offline methods.
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>
+                            The qualitative results show a common failure mode for traditional trackers.
+                            In the sequence shown below, a state-of-the-art 2D tracker loses track of a person during an
+                            occlusion and subsequently swaps their identity with a visually similar person.
+                            In contrast, TrackOR successfully maintains the correct identities throughout the sequence.
+                        </p>
+
+                        <div class="figure">
+                            <img src="./static/images/trackor_qual.pdf" alt="TrackOR Qualitative" loading="lazy" />
+                            <div class="fig-body">
+                                <div class="fig-caption">
+                                    Qualitative results of BoT-Sort and TrackOR (Ours). The bounding box colors reflect
+                                    the
+                                    predicted identity.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="subtitle is-4">Downstream Analysis of OR Workflows through Temporal Pathways Imprints
+                    </h3>
+                    <div class="content">
+                        <section class="section" id="Lede">
+                            <div class="container is-max-desktop content">
+                                <h2 class="title">Lede:</h2>
+                                <p>
+                                    With complete, person-specific trajectories from <em>TrackOR</em>, we can
+                                    move beyond static heatmaps to create <em>Temporal Pathway Imprints</em> to focus on
+                                    dynamic
+                                    visualizations that reveal the pathway of a staff member through the OR over time.
+                                </p>
+                            </div>
+                        </section>
+
+                        <p>
+                            The figure below shows two <em>temporal pathway imprints</em> from the same robot technician
+                            across two different surgeries. The imprints capture in Surgery 2 that the non-sterile
+                            technician’s pathway comes into close proximity with the sterile patient table, which could
+                            be a potential safety concern. Ultimately, these imprints demonstrate the potential to move
+                            towards a data-driven science of the OR, enabling automated workflow analysis, objective
+                            safety monitoring, and personalized feedback for the entire surgical team.
+                        </p>
+
+                        <div class="figure">
+                            <img src="./static/images/trackor_pathways.pdf" alt="TrackOR Pathways" loading="lazy" />
+                            <div class="fig-body">
+                                <div class="fig-caption">
+                                    <em>Temporal pathway imprints</em> of the robot technician of two different
+                                    surgeries. We plot the first 1,000s of each surgery. The extended transparent
+                                    borders delineate the 12-inch border around the sterile fields.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <a class="back-to-top" href="#toc-list">↑ Back to top</a>
+                </section>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BibTeX (kept and styled by bib.js) -->
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>
+    @article{wang2025_beyond_role,
+        title = {Beyond role-based surgical domain modeling: Generalizable re-identification in the operating room},
+        journal = {Medical Image Analysis},
+        volume = {105},
+        pages = {103687},
+        year = {2025},
+        author = {Tony Danjun Wang and Lennart Bastian and Tobias Czempiel and Christian Heiliger and Nassir Navab},
+    }
+
+    @inproceedings{wang2025_trackor,
+        title={TrackOR: Towards Personalized Intelligent Operating Rooms Through Robust Tracking},
+        author={Tony Danjun Wang and Christian Heiliger and Nassir Navab and Lennart Bastian},
+        booktitle={Collaborative Intelligence and Autonomy in Image-guided Surgery},
+        year={2025},
+        organization={Springer Nature}
+    }
+
+    @article{wang2025_mitigating_biases,
+        title={Mitigating Biases in Surgical Operating Rooms with Geometry},
+        author={Tony Danjun Wang and Tobias Czempiel and Christian Heiliger and Nassir Navab and Lennart Bastian},
+        journal={arXiv preprint arXiv:2508.08028},
+        year={2025}
+    }
+        </code></pre>
+            <div class="bib-entries"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <a class="icon-link" href="https://arxiv.org/abs/2307.14241" target="_blank">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+                <a class="icon-link" href="https://github.com/wngTn" class="external-link" disabled>
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p style="text-align:center">
+                            Source code for this website mainly inspired from
+                            <a href="https://keunhong.com/" target="_blank">Keunhong Park</a>'s
+                            <a href="https://nerfies.github.io/" target="_blank">Nerfies website</a>.
+                        </p>
+                        <p style="text-align:center">
+                            Contact <a href="https://wngtn.github.io" target="_blank">Tony Danjun Wang</a>
+                            or
+                            <a href="https://www.cs.cit.tum.de/camp/members/lennart-bastian/" target="_blank">Lennart
+                                Bastian</a>
+                            for any questions or feedback.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GDPR banner -->
+    <div id="gdpr-banner">
+        This website is hosted on GitHub Pages. GitHub may collect some of your data, such as your IP address and user
+        agent, for analytics and security purposes. The data may be transferred to servers in the United States or other
+        countries outside of the European Economic Area. We do not control GitHub's data collection and processing
+        activities. By using this website, you consent to any data collection and processing by GitHub under their terms
+        and privacy policy. For more information, please read their
+        <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement"
+            style="text-decoration:none;color: coral;" onmouseover="style='text-decoration:underline; color: coral'"
+            onmouseout="style='text-decoration:none;color: coral'" target="_blank">Privacy Policy</a>.
+        <button id="accept-gdpr">I Understand</button>
+    </div>
+
+    <!-- JS: GDPR behavior, Three.js viewer, BibTeX renderer -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const gdprBanner = document.getElementById("gdpr-banner");
+            const acceptButton = document.getElementById("accept-gdpr");
+            if (localStorage.getItem("gdprAccepted") === "true") {
+                gdprBanner.style.display = "none";
+            }
+            acceptButton.addEventListener("click", function () {
+                gdprBanner.style.display = "none";
+                localStorage.setItem("gdprAccepted", "true");
+            });
+        });
+    </script>
+
+    <!-- Three.js + viewer -->
+    <script defer src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+    <script defer src="https://unpkg.com/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+    <script defer src="https://unpkg.com/three@0.160.0/examples/js/loaders/OBJLoader.js"></script>
+    <script defer src="./static/js/obj-viewer.js"></script>
+    <script defer src="./static/js/video-controls.js"></script>
+    <!-- BibTeX renderer -->
+    <script defer src="./static/js/bib.js"></script>
+
+</body>
+
+</html>

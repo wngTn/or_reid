@@ -1,0 +1,139 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+/* Subtle lift + shadow for publication buttons */
+.publication-row .publication-links a.button,
+.link-block a.button {
+  display: inline-flex;           /* keeps icon/text centered */
+  align-items: center;
+  gap: .4rem;
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04);
+  will-change: transform, box-shadow;
+}
+
+.publication-row .publication-links a.button:hover,
+.link-block a.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.14), 0 2px 6px rgba(0,0,0,.08);
+  filter: brightness(0.98);
+}
+
+.publication-row .publication-links a.button:active,
+.link-block a.button:active {
+  transform: translateY(0);       /* pressed back down */
+  box-shadow: 0 4px 12px rgba(0,0,0,.16), 0 1px 3px rgba(0,0,0,.08);
+  filter: none;
+}
+
+.publication-row .publication-links a.button:focus-visible,
+.link-block a.button:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(59,130,246,.35),  /* accessible focus ring */
+    0 6px 18px rgba(0,0,0,.14),
+    0 1px 3px rgba(0,0,0,.06) !important;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .publication-row .publication-links a.button,
+  .link-block a.button {
+    transition: box-shadow .15s ease;
+    transform: none;
+  }
+}
+
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 0;
+}
+
+.results-carousel video {
+  margin: 0;
+}
+
+
+.interpolation-panel {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.interpolation-panel .interpolation-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.interpolation-video-column {
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+#interpolation-image-wrapper {
+  width: 100%;
+}
+#interpolation-image-wrapper img {
+  border-radius: 5px;
+}
+
+#gdpr-banner {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #6b6a6a;
+  color: white;
+  text-align: center;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#gdpr-banner button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #FF6F61;
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+#gdpr-banner button:hover {
+  background-color: #E63946;
+  transform: scale(1.05);
+}
+
+div.columns div.column div.content ol.custom-counter {
+  list-style-type: none !important;
+  counter-reset: list-counter;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+div.columns div.column div.content ol.custom-counter li {
+  counter-increment: list-counter;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+div.columns div.column div.content ol.custom-counter li:before {
+  content: counter(list-counter, lower-alpha) ") ";
+  font-weight: bold;
+}
