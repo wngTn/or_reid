@@ -687,3 +687,6 @@ nav#toc li::before { content: none !important; counter-increment: none !importan
 /* optional: tidy nesting */
 nav#toc ol ol{ padding-left: 1rem; opacity: .9; }
 nav#toc li{ margin: .25rem 0; }
+
+.bib-permalink { opacity: 0; margin-left: .25rem; font-size: .9em; }
+.bib-permalink:hover { opacity: 0; }

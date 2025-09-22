@@ -1,5 +1,53 @@
 
+
+
 (function () {
+  function resolvePrimaryUrl(e) {
+    // 1) Your hard-coded mapping
+    const override = LINK_OVERRIDES[e.key];
+    if (override) return override;
+
+    // 2) BibTeX fields fallbacks
+    const f = e.fields || {};
+    if (f.url) return f.url;
+
+    // DOI → https://doi.org/...
+    if (f.doi) return 'https://doi.org/' + f.doi.replace(/^https?:\/\/doi\.org\//, '');
+
+    // arXiv (common in BibTeX: eprint + eprinttype)
+    if (/arxiv/i.test(f.eprinttype || '') && f.eprint) return 'https://arxiv.org/abs/' + f.eprint;
+
+    return ''; // nothing found
+  }
+
+  // At top of bib.js
+  const LINK_OVERRIDES = {
+    "wang2025_beyond_role": "https://www.sciencedirect.com/science/article/pii/S1361841525002348",
+    "wang2025_trackor": "https://arxiv.org/abs/2508.07968",
+    "wang2025_mitigating_biases": "https://arxiv.org/abs/2508.08028"
+  };
+
+  // Wherever you render a single entry:
+  function primaryLinkFor(entry) {
+    // Prefer your override, else fall back to entry.url/arxiv, etc.
+    return LINK_OVERRIDES[entry.id] || entry.url || entry.arxiv || '#';
+  }
+
+  function renderEntry(entry) {
+    const card = document.createElement('div');
+    card.className = 'bib-item';
+    card.dataset.citekey = entry.id; // helpful for future tweaks
+
+    const a = document.createElement('a');
+    a.href = primaryLinkFor(entry);
+    a.className = 'external-link button is-normal is-rounded is-dark';
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+
+    // ...append icon/text, etc.
+    card.appendChild(a);
+    return card;
+  }
   function dedent(text) {
     const lines = text.replace(/\r\n/g, '\n').split('\n');
     while (lines.length && !lines[0].trim()) lines.shift();
@@ -108,7 +156,7 @@
     // Intro
     const intro = document.createElement('div');
     intro.className = 'bib-intro';
-    intro.textContent = 'Citations are numbered below. Use the copy button to grab BibTeX. Link directly with #<key> (e.g., #wang2025_beyond_role).';
+    intro.textContent = 'Citations are numbered below. Use the copy button to grab BibTeX.';
     container.insertAdjacentElement('beforebegin', intro);
 
     // Render entries
@@ -117,12 +165,46 @@
       card.className = 'bib-card';
       card.id = e.key;
 
+      // Title
       const title = document.createElement('h3');
       title.className = 'bib-title';
+
+      const url = resolvePrimaryUrl(e);
+
       const a = document.createElement('a');
-      a.href = '#' + e.key;
+      // Make the title open the paper in a new tab if we have a URL
+      if (url) {
+        a.href = url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+      } else {
+        a.href = '#' + e.key; // fallback: internal anchor
+      }
       a.textContent = '[' + (idx + 1) + '] ' + (e.fields.title || e.key);
       title.appendChild(a);
+
+      // Optional tiny permalink so in-text [n] still has an internal anchor target
+      const permalink = document.createElement('a');
+      permalink.href = '#' + e.key;
+      permalink.className = 'bib-permalink';
+      permalink.textContent = ' ¶';
+      title.appendChild(permalink);
+
+      // Actions
+      const actions = document.createElement('div');
+      actions.className = 'bib-actions';
+
+      // If you also want a visible button:
+      if (url) {
+        const openBtn = document.createElement('a');
+        openBtn.href = url;
+        openBtn.target = '_blank';
+        openBtn.rel = 'noopener noreferrer';
+        openBtn.className = 'button is-small is-dark external-link';
+        openBtn.textContent = 'Open';
+        actions.appendChild(openBtn);
+      }
+
 
       const meta = document.createElement('div');
       meta.className = 'bib-meta';
@@ -132,8 +214,6 @@
       meta.innerHTML = authors + (venue ? ' · <span class="venue">' + venue + '</span>' : '') + year;
 
       // Actions: only Copy button (no Link button)
-      const actions = document.createElement('div');
-      actions.className = 'bib-actions';
       const copyBtn = document.createElement('button');
       copyBtn.className = 'button is-small is-light';
       copyBtn.textContent = 'Copy BibTeX';

@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description"
-        content="OR Re-Identification and Tracking — Blog-style page with table of contents and structured sections" />
-    <title>Going Beyond Role-Based Surgical Domain Modeling — Blog</title>
+        content="OR Re-Identification and Tracking" />
+    <title>Beyond Role-Based Surgical Domain Modeling</title>
 
     <!-- Existing assets -->
     <link rel="stylesheet" href="./static/css/fonts.css" />
@@ -46,7 +46,7 @@
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
                         <h1 class="title is-1 publication-title">
-                            Going Beyond Role-Based Surgical Domain Modeling — Towards Personalized OR Intelligence
+                            Beyond Role-Based Surgical Domain Modeling — To Personalized OR Intelligence
                         </h1>
 
                         <div class="authors-grid">
@@ -226,19 +226,19 @@
     </section>
 
     <!-- TOC card (non-sticky) -->
-    <nav class="toc-bar" aria-label="Table of contents">
+    <!-- <nav class="toc-bar" aria-label="Table of contents">
         <div class="container is-max-desktop">
             <div class="toc-title">Table of Contents</div>
             <ol id="toc-list" class="toc-list"></ol>
         </div>
-    </nav>
+    </nav> -->
 
     <!-- Blog content -->
     <section class="section" id="article-content">
         <div class="container is-max-desktop">
             <div class="content">
 
-                <div class="message is-info" style="margin-top:.75rem;">
+                <!-- <div class="message is-info" style="margin-top:.75rem;">
                     <div class="message-header">
                         <span class="icon"><i class="fas fa-info-circle"></i></span>
                         <span>Note</span>
@@ -246,12 +246,12 @@
                     <div class="message-body">
                         In our journal paper <a class="cite" data-key="wang2025_beyond_role"></a> we introduce the
                         <em>OR_ReID_13 dataset</em>.
-                        This dataset is taken from the MM-OR dataset, however, the MM-OR dataset was not published
+                        This dataset is taken from the MM-OR dataset; however, the MM-OR dataset was not published
                         during the time of writing.
-                        As such, the OR_ReID_13 dataset and MM-OR dataset reference the same dataset and both names are
+                        As such, the OR_ReID_13 and MM-OR datasets reference the same dataset, and both names are
                         used interchangeably.
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Section 1 -->
                 <section class="blog-section">
@@ -262,7 +262,7 @@
                         <section class="section" id="Lede">
                             <div class="container is-max-desktop content">
                                 <h2 class="title">TL;DR:</h2>
-                                <p>We challenge the traditional, role-based view of the operating room, proposing a
+                                <p>We challenge the traditional, role-based view of the operating room and propose a
                                     <em>"staff-centric"</em> model that recognizes the unique impact of each individual
                                     on surgical dynamics.
                                 </p>
@@ -332,7 +332,8 @@
                 <section class="blog-section">
                     <h2 class="title is-3">Challenges in Surgical Operating Rooms</h2>
                     <div class="content">
-                        <section class="section" id="Lede">
+
+                        <!-- <section class="section" id="Lede">
                             <div class="container is-max-desktop content">
                                 <h2 class="title">TL;DR:</h2>
                                 <p>
@@ -341,19 +342,19 @@
                                     differentiate people.
                                 </p>
                             </div>
-                        </section>
+                        </section> -->
 
                         <p>
                             The surgical OR is a challenging environment compared to general environments where
                             individuals are easily distinguished by their clothing and faces.
-                            Team members wear standardized, often visually indistinct, smocks and gowns to maintain
+                            Team members wear standardized, often visually indistinct smocks and gowns to maintain
                             sterility. This homogeneity makes traditional appearance-based identification methods, which
                             rely on texture and color fail.
                             Furthermore, surgical masks, skull caps, and other protective equipment hide facial features
                             and hair, which are the prominent cues for person re-identification.
                         </p>
                         <p>
-                            As you can see in the figure below, the standardized attire makes it difficult to
+                            As shown in the figure below, the standardized attire makes it difficult to
                             differentiate individuals based on appearance alone.
                         </p>
                     </div>
@@ -381,13 +382,12 @@
                             <span>Note</span>
                         </div>
                         <div class="message-body">
-                            Please read our journal paper <a class="cite" data-key="wang2025_beyond_role"></a> for much
-                            more details on this topic.
+                            Read our Medical Image Analysis Paper <a class="cite" data-key="wang2025_beyond_role"></a> for more details.
                         </div>
                     </div>
 
 
-                    <section class="section" id="Lede">
+                    <!-- <section class="section" id="Lede">
                         <div class="container is-max-desktop content">
                             <h2 class="title">TL;DR:</h2>
                             <p>
@@ -399,7 +399,7 @@
                                 different procedures and clinics.
                             </p>
                         </div>
-                    </section>
+                    </section> -->
 
                     <h3 class="subtitle is-4">Mitigating Biases in Surgical Operating Rooms with Geometry</h3>
                     <div class="content">
@@ -430,7 +430,7 @@
                         </div>
 
                         <p>
-                            To overcome this, we shift our focus from appearance to geometry and articulated motion. Our
+                            We shift our focus from appearance to geometry and articulated motion to overcome this. Our
                             approach encodes surgical personnel as sequences of 3D point clouds, to naturally
                             disentangle identity-relevant shape and motion patterns from misleading, appearance-based
                             confounders. By capturing invariant geometric properties like an individual's stature, body
@@ -445,7 +445,7 @@
                         </p>
 
                         <div class="figure">
-                            <img src="./static/videos/idea.mov" alt="Idea" loading="lazy" />
+                            <img src="./static/videos/idea.mp4" alt="Idea" loading="lazy" />
                             <div class="fig-body">
                                 <div class="fig-caption"><em>Who is the person to re-identify?</em> A depiction of four
                                     surgeons
@@ -457,7 +457,7 @@
 
                     <h3 class="subtitle is-4">Methodology</h3>
                     <div class="content">
-                        <section class="section" id="Lede">
+                        <!-- <section class="section" id="Lede">
                             <div class="container is-max-desktop content">
                                 <h2 class="title">TL;DR:</h2>
                                 <p>
@@ -465,7 +465,7 @@
                                     representation and then feeds it into a model to learn unique individual signatures.
                                 </p>
                             </div>
-                        </section>
+                        </section> -->
 
                         <p>We first segment each individual from the fused 3D point cloud of the scene. For each person,
                             we then use their segmented point cloud to extract RGB bounding boxes and render a series of
@@ -482,7 +482,7 @@
 
                         <p>
                             Once we have the input sequences, we use a modal-agnostic encoding strategy.
-                            Each frame in a sequence is individually processed by a lightweight ResNet-9 encoder.
+                            A lightweight ResNet-9 encoder individually processes each frame in a sequence.
                             The features are then aggregated over time and processed to generate a final probe embedding
                             for each view. During training, the model learns to pull embeddings of the same individual
                             closer together in the latent space while pushing those of different individuals apart.
@@ -503,21 +503,21 @@
 
                     <h3 class="subtitle is-4">Results</h3>
                     <div class="content">
-                        <section class="section" id="Lede">
-                            <div class="container is-max-desktop content">
+                        <!-- <section class="section" id="Lede"> -->
+                            <!-- <div class="container is-max-desktop content">
                                 <h2 class="title">TL;DR:</h2>
                                 <p>
                                     Our geometric approach outperforms traditional RGB-based methods in realistic
-                                    clinical settings and furthermore demonstrates far superior generalization when
+                                    clinical settings and demonstrates far superior generalization when
                                     transferring
                                     between different OR and non-OR environments.
                                 </p>
-                            </div>
-                        </section>
+                            </div> -->
+                        <!-- </section> -->
 
                         <p>
                             In our quantitative results, all approaches perform well on the simulated 4D-OR dataset
-                            (contains artificial visual cues), however, their effectiveness diverge dramatically on the
+                            (contains artificial visual cues), However, their effectiveness diverges dramatically on the
                             more authentic OR_REID_13 dataset.
                             Our point cloud-based method outperforms its RGB counterpart by a 12% margin in accuracy.
                             This trend is even more pronounced in cross-dataset evaluations.
@@ -535,7 +535,7 @@
                         <p>
                             We visualize learned feature spaces.
                             The visualization on the left reveals that the RGB model tends to cluster individuals by
-                            their surgical attire and role, grouping people with similar scrubs together even if they
+                            their surgical attire and role, grouping people with similar scrubs together, even if they
                             are different individuals. In contrast, the point cloud model structures the latent space
                             based on more meaningful physical characteristics like stature ("Tall" vs. "Short").
                         </p>
@@ -555,7 +555,7 @@
 
                     <h3 class="subtitle is-4">Downstream Analysis of OR Workflows through 3D Activity Imprints</h3>
                     <div class="content">
-                        <section class="section" id="Lede">
+                        <!-- <section class="section" id="Lede">
                             <div class="container is-max-desktop content">
                                 <h2 class="title">TL;DR:</h2>
                                 <p>
@@ -563,16 +563,16 @@
                                     teams utilize the OR space.
                                 </p>
                             </div>
-                        </section>
+                        </section> -->
 
                         <p>
                             A key benefit of our staff-centric model is the ability to analyze surgical workflows at the
                             individual level. We propose <em>3D activity imprints</em>, which is a visualization
                             technique that plots a person's movement and spatial occupancy as a heatmap overlaid on a 3D
                             representation of the OR.
-                            The videos below show imprints for two different head surgeons performing the exact same
-                            procedure. Notice how they develop distinct positional preferences, with one consistently
-                            favoring the patient's left side and the other both sides.
+                            The videos below show imprints for two different head surgeons performing the same
+                            procedure. Notice how they develop distinct positional preferences, one consistently
+                            favoring the patient's left side and the other both.
                         </p>
 
                         <div class="figure video-figure">
@@ -626,12 +626,11 @@
                             <span>Note</span>
                         </div>
                         <div class="message-body">
-                            Please read our workshop paper <a class="cite" data-key="wang2025_trackor"></a> for much
-                            more details on this topic.
+                            Please read our COLAS workshop paper <a class="cite" data-key="wang2025_trackor"></a> for more details.
                         </div>
                     </div>
 
-                    <section class="section" id="Lede">
+                    <!-- <section class="section" id="Lede">
                         <div class="container is-max-desktop content">
                             <h2 class="title">TL;DR:</h2>
                             <p>
@@ -641,24 +640,24 @@
                                 persistent identities throughout entire surgical procedure<strong>s</strong>.
                             </p>
                         </div>
-                    </section>
+                    </section> -->
 
                     <p>
                         While <a class="cite" data-key="wang2025_beyond_role"></a> provides a strong biometric
                         signature, a complete tracking system must handle the dynamic nature of the OR, where staff
                         frequently leave and re-enter the room for extended periods. Traditional multi-object trackers
-                        often fail in these scenarios; they can associate an individual from one frame to the next but
+                        often fail in these scenarios; they can associate individuals from one frame to another but
                         lose their identity permanently after a prolonged absence. This confines their utility to short,
                         uninterrupted video segments and makes a true longitudinal analysis of a full surgery
                         impossible.
                     </p>
 
                     <p>
-                        To solve this, we introduce <em>TrackOR</em>, a framework for long-term multi-person tracking
-                        and re-identification. <em>TrackOR</em> integrates our 3D geometric signature into a complete
+                        We introduce <em>TrackOR</em>, a framework for long-term multi-person tracking
+                        and re-identification to solve this. <em>TrackOR</em> integrates our 3D geometric signature into a complete
                         online tracking pipeline. This allows the system to handle temporary occlusions and to correctly
                         re-identify staff members who return to the OR after a long absence.
-                        The result is the ability to reconstruct complete, persistent and temporally aware trajectories
+                        The result is the ability to reconstruct complete, persistent, and temporally aware trajectories
                         for each staff member, to enable staff-centric analyses required for personalized intelligent
                         systems in the OR.
                     </p>
@@ -684,19 +683,17 @@
                                 <p>
                                     <em>TrackOR</em> is a "tracking-by-detection" framework. Its core is
                                     a real-time online tracker that achieves SOTA performance. For downstream
-                                    applications
-                                    requiring fully reconstructed paths, the framework also includes an optional offline
-                                    recovery process.
+                                    applications requiring fully reconstructed paths, the framework also includes an optional offline recovery process.
                                 </p>
                             </div>
                         </section>
 
                         <p>
                             The online tracking stage operates in real-time during the surgery.
-                            For each frame, the system first detects all individuals in the scene as 3D human poses
-                            using multi-view RGB. For each detection, we extract our robust 3D geometric ReID feature
-                            from the person's corresponding point cloud. To associate people from one frame to the next,
-                            we calculate a cost based on both their spatial proximity and the similarity of their
+                            The system first detects all individuals in the scene for each frame as 3D human poses
+                            using multi-view RGB. We extract our robust 3D geometric ReID feature
+                            for each detection from the person's corresponding point cloud. To associate people from one frame to the next,
+                            we calculate a cost based on their spatial proximity and the similarity of their
                             geometric signatures.
                         </p>
 
@@ -716,7 +713,7 @@
                         </div>
 
                         <p>
-                            For downstream tasks, we can perform an offline global trajectory recovery step to correct
+                            We can perform an offline global trajectory recovery step for downstream tasks to correct
                             any errors or fragmentation from the online stage. We take all the tracklets and use our
                             ReID model to assign a definitive identity to each tracklet. Finally, we group all tracklets
                             with the same assigned identity to reconstruct a single, complete global trajectory for each
@@ -738,16 +735,15 @@
 
                     <h3 class="subtitle is-4">Results</h3>
                     <div class="content">
-                        <section class="section" id="Lede">
+                        <!-- <section class="section" id="Lede">
                             <div class="container is-max-desktop content">
                                 <h2 class="title">TL;DR:</h2>
                                 <p>
                                     <em>TrackOR</em> achieves significantly better association performance due to
-                                    the
-                                    geometric Re-ID features maintaining accurate, long-term identities.
+                                    the geometric Re-ID features maintaining accurate, long-term identities.
                                 </p>
                             </div>
-                        </section>
+                        </section> -->
 
                         <p>
                             We benchmark our framework against a comprehensive set of modern 2D and 3D trackers. The
@@ -769,8 +765,8 @@
 
                         <p>
                             The qualitative results show a common failure mode for traditional trackers.
-                            In the sequence shown below, a state-of-the-art 2D tracker loses track of a person during an
-                            occlusion and subsequently swaps their identity with a visually similar person.
+                            In the sequence below, a state-of-the-art 2D tracker loses track of a person during an
+                            occlusion and swaps their identity with a visually similar person.
                             In contrast, TrackOR successfully maintains the correct identities throughout the sequence.
                         </p>
 
@@ -789,7 +785,7 @@
                     <h3 class="subtitle is-4">Downstream Analysis of OR Workflows through Temporal Pathways Imprints
                     </h3>
                     <div class="content">
-                        <section class="section" id="Lede">
+                        <!-- <section class="section" id="Lede">
                             <div class="container is-max-desktop content">
                                 <h2 class="title">TL;DR:</h2>
                                 <p>
@@ -799,7 +795,7 @@
                                     visualizations that reveal the pathway of a staff member through the OR over time.
                                 </p>
                             </div>
-                        </section>
+                        </section> -->
 
                         <p>
                             The figure below shows two <em>temporal pathway imprints</em> from the same robot technician
@@ -857,6 +853,7 @@
     @article{wang2025_mitigating_biases,
         title={Mitigating Biases in Surgical Operating Rooms with Geometry},
         author={Tony Danjun Wang and Tobias Czempiel and Christian Heiliger and Nassir Navab and Lennart Bastian},
+        booktitle={COLAS Workshop at MICCAI},
         journal={arXiv preprint arXiv:2508.08028},
         year={2025}
     }
