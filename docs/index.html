@@ -45,8 +45,10 @@
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
                         <h1 class="title is-1 publication-title">
-                            Beyond Role-Based Surgical Domain Modeling — To Personalized OR Intelligence
+                            From Role-Based Surgical Domain Modeling<br>
+                            To Personalized OR Intelligence
                         </h1>
+                        <br>
 
                         <div class="authors-grid">
                             <div class="author-card">
@@ -118,11 +120,11 @@
 
 
                         <div class="is-size-6 publication-authors" style="margin-top:.5rem;">
+                            <span class="author-block"><sup>1</sup>Technical University of Munich (TUM)</span> &nbsp; &nbsp;
+                            <span class="author-block"><sup>2</sup>Munich Center for Machine Learning (MCML)</span><br>
+                            <span class="author-block"><sup>3</sup>University College London (UCL)</span> &nbsp; &nbsp;
+                            <span class="author-block"><sup>4</sup>University Hospital of Munich (LMU)</span><br>
                             <span class="author-block"><sup>*</sup>Equal Contribution</span>
-                            <span class="author-block"><sup>1</sup>Technical University of Munich (TUM)</span>
-                            <span class="author-block"><sup>2</sup>Munich Center for Machine Learning (MCML)</span>
-                            <span class="author-block"><sup>3</sup>University College London (UCL)</span>
-                            <span class="author-block"><sup>4</sup>University Hospital of Munich (LMU)</span>
                         </div>
                     </div>
                 </div>
@@ -140,14 +142,14 @@
                         Beyond role-based surgical domain modeling: Generalizable re-identification in the operating
                         room
                     </h3>
-                    <div class="pub-meta">(Medical Image Analysis'25)</div>
+                    <div class="pub-meta">(Medical Image Analysis '25)</div>
                     <div class="column has-text-centered">
                         <div class="publication-links">
                             <span class="link-block">
                                 <a href="https://www.sciencedirect.com/science/article/pii/S1361841525002348"
                                     target="_blank" class="external-link button is-normal is-rounded is-dark">
                                     <span class="icon"><i class="fas fa-book"></i></span>
-                                    <span>Medical Image Analysis (Elsevier)</span>
+                                    <span>Paper</span>
                                 </a>
                             </span>
                             <span class="link-block">
@@ -161,7 +163,7 @@
                                 <a href="https://github.com/wngTn/or_reid" target="_blank"
                                     class="external-link button is-normal is-rounded is-dark">
                                     <span class="icon"><i class="fab fa-github"></i></span>
-                                    <span>Code</span>
+                                    <span>Code (Coming Soon)</span>
                                 </a>
                             </span>
                         </div>
@@ -256,18 +258,22 @@
                     <div class="abstract-card">
                         <div class="abstract-label">Abstract</div>
                         <div class="abstract-body">
-                            Surgical data science has previously relied on role-based models, which fail to capture the
-                            significant impact of individual team members and their unique dynamics on surgical
-                            outcomes. However, a shift to a more granular, staff-centric paradigm is hindered by the
-                            challenging visual environment of the operating room (OR), where standardized attire
-                            obscures traditional biometric cues. In our project, we introduce a novel approach that
-                            moves away from appearance-based methods by leveraging 3D geometry and articulated motion to
-                            create robust, invariant biometric signatures for personnel re-identification. Building on
-                            this, we also present TrackOR, an end-to-end framework capable of maintaining persistent
-                            staff identities throughout entire procedures, even across long-term absences. Our
-                            staff-centric tracking enables downstream analyses, such as <em>3D activity imprints</em>
-                            and <em>temporal pathways</em>, which would ultimately lead to personalized OR intelligence
-                            for every clinician.
+                            Surgical data science increasingly relies on role-based domain models.
+                            However, these fail to capture the
+                            significance of individual team members and their collaborative dynamics on surgical outcomes.
+                            We propose a paradigm shift towards <em>staff-centric</em> surgical domain models,
+                            which model individual traits as opposed to considering staff as interchangeable surgical roles.
+                            To achieve this, we address the necessary problem of <strong>person re-identification</strong>
+                            in the operating room (OR), which has been hindered due to the <strong>challenging visual environment</strong>, 
+                            where traditional biometric cues are obscured. To overcome monotenous texture appearances 
+                            due to standardized attire, we introduce a novel approach that
+                            <strong>leverages 3D shape and articulated motion cues</strong> to
+                            achieve robust, invariant biometric signatures for personnel re-identification. We further present 
+                            <strong>TrackOR</strong>, an end-to-end framework capable of maintaining persistent
+                            staff identities throughout long surgical procedures, even across extended absences. 
+                            The proposed staff-centric models enable downstream analyses, such as <em>3D activity imprints</em>
+                            and <em>temporal pathways</em>, which ultimately pave the way for surgical domain models
+                            that delineate team dynamics from procedural efficiency and patient outcomes.
                         </div>
                     </div>
                 </section>
