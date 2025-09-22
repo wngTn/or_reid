@@ -690,3 +690,64 @@ nav#toc li{ margin: .25rem 0; }
 
 .bib-permalink { opacity: 0; margin-left: .25rem; font-size: .9em; }
 .bib-permalink:hover { opacity: 0; }
+
+/* ===== Abstract block ===== */
+/* ===== Abstract (light, subtle) ===== */
+:root{
+  --read-width: 48rem;
+  --card-bg: #ffffff;
+  --card-fg: #111827;         /* slate-900-ish */
+  --muted:   #6b7280;         /* slate-500 */
+  --border:  rgba(17,24,39,.08);
+  --shadow:  0 2px 12px rgba(17,24,39,.06);
+  --accent:  #e5e7eb;         /* slate-200 for a faint left rule */
+}
+
+.abstract{
+  max-width: var(--read-width);
+  margin: 1.75rem auto 2rem;
+  padding: 0 1rem;
+}
+
+.abstract-card{
+  background: var(--card-bg);
+  color: var(--card-fg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  position: relative;
+}
+
+/* faint left rule; remove if you want it ultra-minimal */
+.abstract-card::before{
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--accent);
+}
+
+.abstract-label{
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: .75rem 1rem .25rem 1rem;
+  margin-left: .25rem; /* balances the left rule */
+  user-select: none;
+}
+
+.abstract-body{
+  padding: 0 1rem 1rem 1rem;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* keep emphasis gentle */
+#abstract em{ font-style: italic; opacity: .95; }
+
+/* responsive tweak */
+@media (max-width: 640px){
+  .abstract-body{ line-height: 1.68; }
+}

@@ -4,8 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description"
-        content="OR Re-Identification and Tracking" />
+    <meta name="description" content="OR Re-Identification and Tracking" />
     <title>Beyond Role-Based Surgical Domain Modeling</title>
 
     <!-- Existing assets -->
@@ -253,6 +252,26 @@
                     </div>
                 </div> -->
 
+                <section id="abstract" class="abstract">
+                    <div class="abstract-card">
+                        <div class="abstract-label">Abstract</div>
+                        <div class="abstract-body">
+                            Surgical data science has previously relied on role-based models, which fail to capture the
+                            significant impact of individual team members and their unique dynamics on surgical
+                            outcomes. However, a shift to a more granular, staff-centric paradigm is hindered by the
+                            challenging visual environment of the operating room (OR), where standardized attire
+                            obscures traditional biometric cues. In our project, we introduce a novel approach that
+                            moves away from appearance-based methods by leveraging 3D geometry and articulated motion to
+                            create robust, invariant biometric signatures for personnel re-identification. Building on
+                            this, we also present TrackOR, an end-to-end framework capable of maintaining persistent
+                            staff identities throughout entire procedures, even across long-term absences. Our
+                            staff-centric tracking enables downstream analyses, such as <em>3D activity imprints</em>
+                            and <em>temporal pathways</em>, which would ultimately lead to personalized OR intelligence
+                            for every clinician.
+                        </div>
+                    </div>
+                </section>
+
                 <!-- Section 1 -->
                 <section class="blog-section">
                     <h2 class="title is-3">Beyond Role-Based Surgical Domain Modeling: A Staff-Centric Approach for
@@ -382,7 +401,8 @@
                             <span>Note</span>
                         </div>
                         <div class="message-body">
-                            Read our Medical Image Analysis Paper <a class="cite" data-key="wang2025_beyond_role"></a> for more details.
+                            Read our Medical Image Analysis Paper <a class="cite" data-key="wang2025_beyond_role"></a>
+                            for more details.
                         </div>
                     </div>
 
@@ -504,7 +524,7 @@
                     <h3 class="subtitle is-4">Results</h3>
                     <div class="content">
                         <!-- <section class="section" id="Lede"> -->
-                            <!-- <div class="container is-max-desktop content">
+                        <!-- <div class="container is-max-desktop content">
                                 <h2 class="title">TL;DR:</h2>
                                 <p>
                                     Our geometric approach outperforms traditional RGB-based methods in realistic
@@ -579,13 +599,13 @@
                             <div class="video-grid" id="clinical-team-videos">
                                 <figure class="video-card">
                                     <div class="video-label">Head Surgeon (Person 1)</div>
-                                    <video id="head_s1" src="static/videos/head_surgeon_1_small.mp4" preload="auto" controls
-                                        playsinline muted autoplay loop></video>
+                                    <video id="head_s1" src="static/videos/head_surgeon_1_small.mp4" preload="auto"
+                                        controls playsinline muted autoplay loop></video>
                                 </figure>
                                 <figure class="video-card">
                                     <div class="video-label">Head Surgeon (Person 2)</div>
-                                    <video id="head_s2" src="static/videos/head_surgeon_2_small.mp4" preload="auto" controls
-                                        playsinline muted autoplay loop></video>
+                                    <video id="head_s2" src="static/videos/head_surgeon_2_small.mp4" preload="auto"
+                                        controls playsinline muted autoplay loop></video>
                                 </figure>
                             </div>
                             <div class="fig-body">
@@ -626,7 +646,8 @@
                             <span>Note</span>
                         </div>
                         <div class="message-body">
-                            Please read our COLAS workshop paper <a class="cite" data-key="wang2025_trackor"></a> for more details.
+                            Please read our COLAS workshop paper <a class="cite" data-key="wang2025_trackor"></a> for
+                            more details.
                         </div>
                     </div>
 
@@ -654,7 +675,8 @@
 
                     <p>
                         We introduce <em>TrackOR</em>, a framework for long-term multi-person tracking
-                        and re-identification to solve this. <em>TrackOR</em> integrates our 3D geometric signature into a complete
+                        and re-identification to solve this. <em>TrackOR</em> integrates our 3D geometric signature into
+                        a complete
                         online tracking pipeline. This allows the system to handle temporary occlusions and to correctly
                         re-identify staff members who return to the OR after a long absence.
                         The result is the ability to reconstruct complete, persistent, and temporally aware trajectories
@@ -683,7 +705,8 @@
                                 <p>
                                     <em>TrackOR</em> is a "tracking-by-detection" framework. Its core is
                                     a real-time online tracker that achieves SOTA performance. For downstream
-                                    applications requiring fully reconstructed paths, the framework also includes an optional offline recovery process.
+                                    applications requiring fully reconstructed paths, the framework also includes an
+                                    optional offline recovery process.
                                 </p>
                             </div>
                         </section>
@@ -692,7 +715,8 @@
                             The online tracking stage operates in real-time during the surgery.
                             The system first detects all individuals in the scene for each frame as 3D human poses
                             using multi-view RGB. We extract our robust 3D geometric ReID feature
-                            for each detection from the person's corresponding point cloud. To associate people from one frame to the next,
+                            for each detection from the person's corresponding point cloud. To associate people from one
+                            frame to the next,
                             we calculate a cost based on their spatial proximity and the similarity of their
                             geometric signatures.
                         </p>
