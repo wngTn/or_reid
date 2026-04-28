@@ -1,0 +1,109 @@
+data_cfg:
+  dataset_name: OR_ReID
+  train_dataset_name: OR_ReID_13
+  test_dataset_name: OR_ReID_13
+  dataset_root: ./data
+  num_workers: 4
+  # Aligned, Fixed, Far, RGB, PCD
+  data_in_use: [false, false, true, false, false]
+
+evaluator_cfg:
+  enable_float16: true
+  restore_ckpt_strict: false
+  restore_hint: sustech1k
+  save_name: PC_SUSTech1K_OR_ReID_13
+  eval_func: extended_mm_or_reid
+  sampler:
+    batch_shuffle: false
+    batch_size: 16
+    sample_type: all_ordered
+    frames_all_limit: 720
+    type: InferenceSampler
+  metric: svm
+  transform:
+    - type: BaseSilTransform
+
+loss_cfg:
+  - loss_term_weight: 1.0
+    margin: 0.3
+    type: TripletLoss
+    log_prefix: triplet
+  - loss_term_weight: 1.0
+    scale: 16
+    type: CrossEntropyLoss
+    log_prefix: softmax
+    log_accuracy: true
+
+model_cfg:
+  model: Baseline
+  backbone_cfg:
+    type: ResNet9
+    in_channel: 3
+    block: BasicBlock
+    channels:
+      - 64
+      - 128
+      - 256
+      - 512
+    layers:
+      - 1
+      - 1
+      - 1
+      - 1
+    strides:
+      - 1
+      - 2
+      - 2
+      - 1
+    maxpool: false
+  SeparateFCs:
+    in_channels: 512
+    out_channels: 256
+    parts_num: 16
+  SeparateBNNecks:
+    class_num: -1 # to be set in code
+    in_channels: 256
+    parts_num: 16
+  bin_num:
+    - 16
+
+optimizer_cfg:
+  lr: 0.01
+  momentum: 0.9
+  solver: SGD
+  weight_decay: 0.0005
+
+scheduler_cfg:
+  gamma: 0.1
+  milestones:
+    - 20000
+    - 30000
+  scheduler: MultiStepLR
+trainer_cfg:
+  enable_float16: true
+  fix_BN: false
+  with_test: true
+  log_iter: 100
+  eval_iter: 10_000
+  restore_ckpt_strict: false
+  restore_hint: sustech1k
+  save_iter: 40_000
+  save_name: PC_SUSTech1K_OR_ReID_13
+  sync_BN: true
+  total_iter: 40_000
+  sampler:
+    batch_shuffle: true
+    batch_size:
+      - 8
+      - 8
+    frames_num_fixed: 10
+    sample_type: fixed_unordered
+    type: TripletSampler
+  transform:
+    - type: Compose
+      trf_cfg:
+        - type: BaseSilTransform
+        - type: RandomErasing
+          per_frame: true
+        - type: RandomGaussianNoiseAccordingToColorMap
+          per_frame: true
