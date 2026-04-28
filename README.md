@@ -49,7 +49,8 @@ uv sync
 
 ## Data preparation
 
-We provide scripts to download the datasets used in our study.
+We provide scripts to download the datasets used in our study. 
+Put them under `./data`
 
 **OR_ReID_13:**
 ```bash
