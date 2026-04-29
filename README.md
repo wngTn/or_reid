@@ -50,17 +50,8 @@ uv sync
 ## Data preparation
 
 We provide scripts to download the datasets used in our study. 
-Put them under `./data`
-
-**OR_ReID_13:**
-```bash
-gdown --no-cookies --fuzzy 1sqN-8VJbqq6OZ5p4xG8_uqgDR-3lFWWy
-```
-
-**4D-OR:**
-```bash
-gdown --no-cookies --fuzzy 1N8dme02JzGOKH_uTxISKpRk1ByswaM5m
-```
+Please fill in the Google Forms [here](https://forms.gle/EGdZBCwjaRHFsfyF7) to get access to the `OR_ReID_13` as well as the `4D-OR_ReID` datasets.
+After downloading the datasets, please put them under `./data`
 
 ## Checkpoints
 
